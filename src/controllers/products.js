@@ -28,4 +28,18 @@ ProductControllers.post = async (req, res) => {
     })
 }
 
+ProductControllers.put = async (req, res) => {
+    const { id } = req.params
+
+    const product = await ProductsModel.findOneAndUpdate({ _id: id }, req.body, { new: true })
+
+    // const product = await ProductsModel.findOne({ _id: id })
+    // await product.updateOne(req.body)
+
+    res.send({
+        message: 'success',
+        product
+    })
+}
+
 module.exports = ProductControllers
