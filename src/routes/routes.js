@@ -3,8 +3,8 @@ const router = require('express').Router()
 const ProductControllers = require('../controllers/products')
 
 router.get('/products/:id?', ProductControllers.get)
-//router.get('/products', ProductControllers.post)
-//router.get('/products/:id', ProductControllers.put)
-//router.get('/products/:id', ProductControllers.delete)
+router.post('/products', ProductControllers.post)
+//router.put('/products/:id', ProductControllers.put)
+//router.delete('/products/:id', ProductControllers.delete)
 
 module.exports = router
