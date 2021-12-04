@@ -42,4 +42,16 @@ ProductControllers.put = async (req, res) => {
     })
 }
 
+ProductControllers.remove = async (req, res) => {
+    const { id } = req.params
+
+    const remove = await ProductsModel.deleteOne({ _id: id })
+
+    let message = remove.deletedCount ? 'success' : 'error'
+
+    res.send({
+        message: message
+    })
+}
+
 module.exports = ProductControllers
